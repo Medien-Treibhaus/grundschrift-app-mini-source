@@ -15,7 +15,7 @@ enyo.kind({
     },
     components:[
         {kind:'Image', onload:enyo.bubbler},
-        {name:'caption', kind:'Control', allowHtml:true, classes:'caption'}
+        {name:'caption', kind:'Control', allowHtml:true, classes:'caption', showing: false}
     ],
     handlers:{
         ontap:'tapHandler'

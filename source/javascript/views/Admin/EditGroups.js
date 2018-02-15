@@ -22,12 +22,15 @@ enyo.kind({
 	},
 
 	components:[
-		{kind:'onyx.Toolbar', style:'height:80px', components:[
+		{kind:'onyx.Toolbar', classes: "adminToolbar", style:'height:60px', components:[
 			{
 				kind:'ImageButton',
 				type:'Exit',
 				ontap:'doBack'
 			},
+            {classes: "view-heading", content: "Gruppen"}
+        ]},
+        {kind:'onyx.Toolbar', classes: "lastToolbar", components:[
 			{
 				kind:'onyx.Button',
 				content:'Gruppe hinzufügen',
@@ -39,8 +42,8 @@ enyo.kind({
 				name: 'save',
 				ontap: 'save'
 			},
-			{kind:"onyx.Button", content:"Speichern und zum Hauptmenü", ontap:"saveAndToMainMenu"},
-			{classes: "view-heading", content: "Gruppen bearbeiten"}
+			/*{kind:"onyx.Button", content:"Speichern und zum Hauptmenü", ontap:"saveAndToMainMenu"},*/
+
 		]},
 		{
 			kind: 'Scroller',

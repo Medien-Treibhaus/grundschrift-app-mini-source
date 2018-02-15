@@ -1,6 +1,6 @@
 enyo.Scroller.getTouchStrategy = function() {
-	return (enyo.platform.android >= 3) ? 
-		"TransitionScrollStrategy" 
+	return (enyo.platform.android >= 3) ?
+		"TransitionScrollStrategy"
 		: ((enyo.platform.windowsPhone === 8)
 			? "TranslateScrollStrategy"
 			: "TouchScrollStrategy");
@@ -20,7 +20,7 @@ enyo.kind({
     classes:'gridListWrapper',
 
     published:{
-        minItemWidth:200,
+        minItemWidth:160,
         count:0,
         noGrid:false,
 		lastGroupId: '',
@@ -163,15 +163,11 @@ enyo.kind({
      * @returns void
      */
     cellClick:function (inSender, inEvent) {
-		if (inEvent.originator.name == 'groupHeader') {
-			return;
-		}
-		
         var element = inEvent.dispatchTarget;
         while (element !== undefined && element !== null && element.index === undefined) {
             element = element.parent;
         }
-        if (element && inSender != element.$.groupHeader) {
+        if (element) {
             return this.bubble('onItemTap', {item:element});
         }
     },

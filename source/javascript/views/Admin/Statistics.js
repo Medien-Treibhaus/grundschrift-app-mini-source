@@ -30,25 +30,34 @@ enyo.kind({
     lastTappedNode: null,
 
     components:[
-        {kind:"FittableRows", style:"width:33%", components:[
-            {kind:"onyx.Toolbar", style:"height:80px", components:[
-                {kind:'ImageButton', type:'Exit', ontap:'doBack'},
-				{classes: "view-heading", content: "Statistik"}
-            ]},
-            {name:"sessionTree", kind:"Scroller", fit:true}
+{kind:'FittableRows', name: 'headingSide', style:'width:100%', components:[
+  {kind:"onyx.Toolbar", components:[
+      {kind:'ImageButton', type:'Exit', ontap:'doBack'},
+      {name:'Heading', content: 'Nr.'},
+      {name:"sessionIndex", content:0},
+      {kind:"onyx.Button", name:"replay", disabled:true, content:"Play", ontap:"replay"},
+    {kind:"onyx.Button", name:"prev", disabled:true, content:"<", value:-1, ontap:"changeSession"},
+    {kind:"onyx.Button", name:"next", disabled:true, content:">", value:1, ontap:"changeSession"}
 
+  ]},
+]},
+{kind: "FittableColumns", name:"graphColumns", components:[
+        {kind:"FittableRows", name:'catalogueSide', style:"width:33%", components:[
+            {name:"sessionTree", kind:"Scroller", fit:true}
         ]},
-        {kind:"FittableRows", style:"width:67%;height:100%", components:[
-            {kind:"onyx.Toolbar", style:"height:80px", components:[
-                {kind:"onyx.Button", name:"prev", disabled:true, content:"Zurück", value:-1, ontap:"changeSession"},
-                {name:"sessionIndex", content:0},
-                {kind:"onyx.Button", name:"next", disabled:true, content:"Weiter", value:1, ontap:"changeSession"},
-                {kind:"onyx.Button", name:"replay", disabled:true, content:">", ontap:"replay"}
-            ]},
+        {kind:"FittableRows", name:'graphSide', style:"width:67%;height:100%", components:[
             {kind:"Grundschrift.Views.Admin.Graph", fit:true}
         ]}
+]},
+{kind:'FittableRows', name: 'controlSide', style:'width:100%', components:[
+  {kind:"onyx.Toolbar", components:[
 
+      {kind:"onyx.Button", name:"replay", disabled:true, content:"Play", ontap:"replay"},
+    {kind:"onyx.Button", name:"prev", disabled:true, content:"<", value:-1, ontap:"changeSession"},
+    {kind:"onyx.Button", name:"next", disabled:true, content:">", value:1, ontap:"changeSession"}
 
+  ]}
+]}
     ],
 
 	levelsLoaded: function(inSender, levels) {
@@ -184,5 +193,3 @@ enyo.kind({
         this.$.sessionTree.render();
     }
 });
-
-

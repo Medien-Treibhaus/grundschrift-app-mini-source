@@ -16,8 +16,9 @@ enyo.kind({
         onClose:""
     },
     components:[
+        {content:'ZEIT IST UM!', classes:"popupHeadline"},
         {kind:"Image", src: "assets/icons/wecker.png"},
-        {content:'Deine Spielzeit ist vorbei!', classes:"text"},
+        {content:'Deine Spielzeit ist vorbei! Übe nun weiter mit Stift und Papier!', classes:"text"},
         {content:'OK', kind:'onyx.Button', ontap:'close'}
     ],
     close:function () {

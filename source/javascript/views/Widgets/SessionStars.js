@@ -83,8 +83,8 @@ enyo.kind({
 
 
 		startPoint = enyo.mixin({
-			x:window.innerWidth / 2 - this.targetBounds.width * 10 / 2,
-			y:window.innerHeight / 2 - this.targetBounds.height * 10 / 2
+			x:window.innerWidth / 2, /*- this.targetBounds.width * 10 / 2,*/
+			y:window.innerHeight / 2 /*- this.targetBounds.height * 10 / 2*/
 		}, startPoint);
 
 		this.value = value;

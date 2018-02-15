@@ -2,7 +2,7 @@
 
 .levelMenuItem { //.bordered;
   padding: @marginWidth / 2;
-  border-width: @marginWidth / 2;
+  border-width: 2px;
   border-style: solid;
   border-color: #fffafa;
   padding-bottom: 0;
@@ -24,16 +24,21 @@
   }
 
   &.solved {
-    background-color: green;
+    background-size: contain;
+    background-image: url("../@{assets-url}/icons/level-solved.png");
+    background-repeat: no-repeat;
+    opacity: 0.2;
   }
 
   &.enabled {
     opacity: 1;
     &:active {
-      border-color: @activeHighlightColor;
+      border-color: #777;
+      transform: rotate(3deg);
     }
     &.selected {
-      border-color: @highlightColor;
+      border-color: #777;
+      transform: rotate(3deg);
     }
   }
   .colorStripe {

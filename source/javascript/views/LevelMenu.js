@@ -54,15 +54,16 @@ enyo.kind({
     },
 
     components:[
-        {kind:'FittableColumns', fit:true, components:[
 
-            {kind:"FittableRows", style:'width:20%;min-width:257px', components:[
+
+
                 {kind:'onyx.Toolbar', classes:'sideBarHeader', components:[
                     {kind:'ImageButton', type:'Exit', ontap:'doBack'},
-					{kind:'ImageButton', name: 'sortModeButton', type: 'sortmode_name', ontap: 'toggleSortMode', showing: false},
-                    {kind:'ImageButton', name:'rememberMeButton', showing:false, type:'rememberMe', ontap:'rememberMeTap'}
-                ]},
-                {classes:'sideBarContent', fit:true, kind:'FittableRows', components:[
+                    
+                    {kind:'ImageButton', name: 'sortModeButton', type: 'sortmode_name', ontap: 'toggleSortMode', showing: false},
+                    {kind:'ImageButton', name:'rememberMeButton', showing:false, type:'rememberMe', ontap:'rememberMeTap'},
+
+
                     {
                         name:'categoryMenu',
                         onItemTap:'categoryTap',
@@ -78,7 +79,10 @@ enyo.kind({
                             ]}
                         ]
                     }
-                ]}
+
+
+
+
             ]},
 
             {
@@ -87,15 +91,15 @@ enyo.kind({
                 onSetupItem:'levelSetupItem',
                 classes:'levelGrid',
                 onItemTap:'levelTap',
-                rows:0,
-				fit: true,
-                style:"height: 100%",
-                minItemWidth:200,
+                columns:0,
+        fit: true,
+                style:"width: 100%",
+
                 components:[
                     {kind:'Grundschrift.Views.LevelMenuItem'}
                 ]
             }
-        ]}
+
     ],
 
     sessionCount:{},
@@ -427,10 +431,10 @@ enyo.kind({
             var variants = [];
             enyo.forEach(this.levels, function (l) {
                 if (level != l && this.isLevelUnlocked(l)) {
-					if (level.category === 'zahlen' && l.category == 'zahlen') {
+					/*if (level.category === 'zahlen' && l.category == 'zahlen') {
 						variants.push(l);
 						return;
-					}
+					}*/
 
                     var l1Chars = l.name.toString().split("_").shift().toLowerCase().split(""),
                         l2Chars = level.name.toString().split("_").shift().toLowerCase().split("");
